@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>リダイレクト中...</title>
+  <script>
+    (function () {
+      var urls = [
+        { url: "https://www.amazon.co.jp/s/?keywords=%E6%AF%8D%E3%81%AE%E6%97%A5%E3%82%AE%E3%83%95%E3%83%88&ie=UTF8&field-asin=B0GVPN9MJ1&rh=i:aps,ssx:relevance", weight: 20 },
+        { url: "https://www.amazon.co.jp/s/?keywords=%E6%AF%8D%E3%81%AE%E6%97%A5&ie=UTF8&field-asin=B0GVPN9MJ1&rh=i:aps,ssx:relevance", weight: 35 },
+        { url: "https://www.amazon.co.jp/s/?keywords=%E6%AF%8D%E3%81%AE%E6%97%A5%E3%81%AE%E3%83%97%E3%83%AC%E3%82%BC%E3%83%B3%E3%83%88&ie=UTF8&field-asin=B0GVPN9MJ1&rh=i:aps,ssx:relevance", weight: 15 },
+        { url: "https://www.amazon.co.jp/s/?keywords=%E6%AF%8D%E3%81%AE%E6%97%A5%20%E3%82%AE%E3%83%95%E3%83%88&ie=UTF8&field-asin=B0GVPN9MJ1&rh=i:aps,ssx:relevance", weight: 15 },
+        { url: "https://www.amazon.co.jp/s/?keywords=%E6%AF%8D%E3%81%AE%E6%97%A5%E3%82%AE%E3%83%95%E3%83%88%20%E4%BA%BA%E6%B0%97&ie=UTF8&field-asin=B0GVPN9MJ1&rh=i:aps,ssx:relevance", weight: 15 }
+      ];
+      var rand = Math.random() * 100;
+      var cumulative = 0;
+      for (var i = 0; i < urls.length; i++) {
+        cumulative += urls[i].weight;
+        if (rand < cumulative) {
+          window.location.replace(urls[i].url);
+          break;
+        }
+      }
+    })();
+  </script>
+</head>
+<body><p>リダイレクト中...</p></body>
+</html>
