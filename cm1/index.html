@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>リダイレクト中...</title>
+  <script>
+    (function () {
+      var urls = [
+        { url: "https://www.amazon.co.jp/s/?keywords=%E3%83%9E%E3%82%B0%E3%83%8D%E3%82%B7%E3%82%A6%E3%83%A0%20%E3%82%B5%E3%83%97%E3%83%AA&ie=UTF8&field-asin=B0B1BPCB1J&rh=i:aps,ssx:relevance", weight: 75.0 },
+        { url: "https://www.amazon.co.jp/s/?keywords=%E3%82%AB%E3%83%AB%E3%82%B7%E3%82%A6%E3%83%A0%20%E3%82%B5%E3%83%97%E3%83%AA&ie=UTF8&field-asin=B0B1BPCB1J&rh=i:aps,ssx:relevance", weight: 25.0 }
+      ];
+      var rand = Math.random() * 100;
+      var cumulative = 0;
+      for (var i = 0; i < urls.length; i++) {
+        cumulative += urls[i].weight;
+        if (rand < cumulative) {
+          window.location.replace(urls[i].url);
+          break;
+        }
+      }
+    })();
+  </script>
+</head>
+<body><p>リダイレクト中...</p></body>
+</html>
